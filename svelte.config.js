@@ -10,7 +10,7 @@ export default {
             strict: false // abaikan error prerender
         }),
 		paths: {
-			base: '/jwsholat' // base path untuk deploy ke GitHub Pages
+			base: '/' // base path untuk deploy ke GitHub Pages
 		},
         // Prerender semua halaman yang bisa diprerender
         prerender: {
