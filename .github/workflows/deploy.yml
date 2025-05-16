@@ -1,11 +1,9 @@
-# .github/workflows/deploy.yml
-
-name: Deploy to GitHub Pages
+name: Deploy SvelteKit to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # ganti jika kamu pakai branch lain seperti master atau main
+      - main  # sesuaikan jika kamu pakai branch lain
 
 jobs:
   deploy:
@@ -17,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # atau versi node yang kamu gunakan
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -29,4 +27,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./svelte-kit/output/client
+          commit_message: ${{ github.event.head_commit.message }}
